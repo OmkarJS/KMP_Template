@@ -1,4 +1,4 @@
-rootProject.name = "Spike"
+rootProject.name = "KMPTemplate"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {

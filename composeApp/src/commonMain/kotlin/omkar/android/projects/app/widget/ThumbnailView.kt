@@ -15,8 +15,8 @@ import io.kamel.core.Resource
 import io.kamel.image.asyncPainterResource
 import omkar.android.projects.app.components.percentOfScreenHeight
 import org.jetbrains.compose.resources.painterResource
-import spike.composeapp.generated.resources.Res
-import spike.composeapp.generated.resources.compose_multiplatform
+import kmptemplate.composeapp.generated.resources.Res
+import kmptemplate.composeapp.generated.resources.compose_multiplatform
 
 @Composable
 fun ThumbnailView(string: String) {
