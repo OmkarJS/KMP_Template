@@ -64,6 +64,8 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
+
+            // Navigation
             implementation(libs.voyager.navigator)
 
             // Ktor Client
