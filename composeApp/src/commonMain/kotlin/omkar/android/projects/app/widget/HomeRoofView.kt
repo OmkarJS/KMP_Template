@@ -53,7 +53,7 @@ fun HomeRoofView (
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 Text(
-                    text = Constants.Spike.APP_NAME,
+                    text = Constants.Screen.HOME_PAGE,
                     fontSize = 24.sp,
                     color = colors.primary,
                     fontWeight = FontWeight.Medium

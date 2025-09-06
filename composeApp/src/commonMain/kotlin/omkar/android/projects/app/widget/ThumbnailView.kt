@@ -19,11 +19,11 @@ import kmptemplate.composeapp.generated.resources.Res
 import kmptemplate.composeapp.generated.resources.compose_multiplatform
 
 @Composable
-fun ThumbnailView(string: String) {
+fun ExampleImageLoading(string: String) {
     val painterResource = asyncPainterResource(string)
 
     @Composable
-    fun ThumbnailImage(painter: Painter) {
+    fun ExampleImage(painter: Painter) {
         Image(
             painter = painter,
             contentDescription = "Video Thumbnail",
@@ -38,15 +38,15 @@ fun ThumbnailView(string: String) {
     Box {
         when (painterResource) {
             is Resource.Loading -> {
-                ThumbnailImage(painterResource(Res.drawable.compose_multiplatform))
+                ExampleImage(painterResource(Res.drawable.compose_multiplatform))
             }
 
             is Resource.Success -> {
-                ThumbnailImage(painterResource.value)
+                ExampleImage(painterResource.value)
             }
 
             is Resource.Failure -> {
-                ThumbnailImage(painterResource(Res.drawable.compose_multiplatform))
+                ExampleImage(painterResource(Res.drawable.compose_multiplatform))
             }
         }
 
