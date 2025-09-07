@@ -1,4 +1,3 @@
-import org.gradle.kotlin.dsl.implementation
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
@@ -88,7 +87,6 @@ kotlin {
             // Dependency Injection (Koin)
             api(libs.koin.core)
             implementation(libs.koin.compose)
-            implementation(libs.koin.compose.viewmodel)
         }
 
         androidMain.dependencies {
@@ -101,8 +99,8 @@ kotlin {
             // Dependency Injection (Koin - Android Related)
             implementation(libs.koin.android)
             implementation(libs.koin.androidx.compose)
+            implementation(libs.koin.compose.viewmodel)
         }
-
 
         val desktopMain by getting {
             dependencies {
@@ -114,12 +112,12 @@ kotlin {
             }
         }
 
-        /*val wasmJsMain by getting {
+        val wasmJsMain by getting {
             dependencies {
                 // Ktor client - Web
                 implementation(libs.ktor.client.js)
             }
-        }*/
+        }
     }
 }
 
