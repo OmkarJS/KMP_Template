@@ -1,8 +1,6 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -32,8 +30,8 @@ kotlin {
     }
     
     jvm("desktop")
-    
-    @OptIn(ExperimentalWasmDsl::class)
+
+    /*@OptIn(ExperimentalWasmDsl::class)
     wasmJs {
         moduleName = "composeApp"
         browser {
@@ -48,6 +46,15 @@ kotlin {
                         add(projectDirPath)
                     }
                 }
+            }
+        }
+        binaries.executable()
+    }*/
+
+    js(IR) {
+        browser {
+            commonWebpackConfig {
+                outputFileName = "composeApp.js"
             }
         }
         binaries.executable()
@@ -112,11 +119,12 @@ kotlin {
             }
         }
 
-        val wasmJsMain by getting {
-            dependencies {
-                // Ktor client - Web
-                implementation(libs.ktor.client.js)
-            }
+        jsMain.dependencies {
+            // Ktor client - Web
+            implementation(libs.ktor.client.js)
+
+            // Core dependency
+            implementation(compose.html.core)
         }
     }
 }
