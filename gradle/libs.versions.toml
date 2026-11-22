@@ -1,5 +1,5 @@
 [versions]
-agp = "8.5.2"
+agp = "8.6.0"
 android-compileSdk = "35"
 android-minSdk = "24"
 android-targetSdk = "35"
@@ -12,8 +12,9 @@ androidx-lifecycle = "2.8.4"
 androidx-material = "1.12.0"
 androidx-test-junit = "1.2.1"
 compose-multiplatform = "1.7.3"
+compose-navigation = "2.9.1"
 junit = "4.13.2"
-kotlin = "2.1.10"
+kotlin = "2.2.0"
 
 # Common
 voyagerNavigator = "1.1.0-beta02"
@@ -46,6 +47,7 @@ androidx-lifecycle-runtime-compose = { group = "org.jetbrains.androidx.lifecycle
 # 🔗 COMMON MAIN
 # Navigation
 voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyagerNavigator" }
+androidx-navigation-compose = { group = "org.jetbrains.androidx.navigation", name = "navigation-compose", version.ref = "compose-navigation" }
 
 # Image loader
 kamel-image = { module = "media.kamel:kamel-image", version.ref = "kamelImage" }

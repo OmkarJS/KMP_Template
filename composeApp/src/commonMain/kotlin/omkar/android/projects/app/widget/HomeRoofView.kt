@@ -54,7 +54,7 @@ fun HomeRoofView (
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 Text(
-                    text = Constants.Screen.HOME_PAGE,
+                    text = Constants.Routes.HOME,
                     fontSize = 24.sp,
                     color = colors.primary,
                     fontWeight = FontWeight.Medium

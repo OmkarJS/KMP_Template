@@ -11,13 +11,12 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import cafe.adriel.voyager.navigator.LocalNavigator
-import cafe.adriel.voyager.navigator.currentOrThrow
 import omkar.android.projects.presentation.theme.LocalAppColors
 
 @Composable
-fun ProfilePage() {
-    val navigator = LocalNavigator.currentOrThrow
+fun ProfilePage(
+    onHomeClick: () -> Unit
+) {
     val colors = LocalAppColors.current
 
     Column(
@@ -29,7 +28,7 @@ fun ProfilePage() {
                 contentDescription = "Search Icon",
                 tint = colors.black,
                 modifier = Modifier.clickable {
-                    navigator.pop()
+                    onHomeClick()
                 }
             )
         }
@@ -38,7 +37,7 @@ fun ProfilePage() {
             "Profile",
             modifier = Modifier
                 .weight(1f)
-                .clickable { navigator.pop() }
+                .clickable { onHomeClick() }
         )
     }
 }
