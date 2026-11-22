@@ -72,7 +72,7 @@ kotlin {
             implementation(libs.androidx.lifecycle.runtime.compose)
 
             // Navigation
-            implementation(libs.voyager.navigator)
+            implementation(libs.androidx.navigation.compose)
 
             // Ktor Client
             implementation(libs.ktor.client.core)

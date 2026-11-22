@@ -12,16 +12,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import cafe.adriel.voyager.navigator.LocalNavigator
-import cafe.adriel.voyager.navigator.currentOrThrow
 import omkar.android.projects.app.widget.HomeRoofView
-import omkar.android.projects.presentation.navigation.Screens
 import omkar.android.projects.presentation.theme.LocalAppColors
 import org.koin.compose.koinInject
 
 @Composable
-fun HomePage() {
-    val navigator = LocalNavigator.currentOrThrow
+fun HomePage(
+    onProfileClicked: () -> Unit
+) {
     val colors = LocalAppColors.current
     val homeViewModel: HomeViewModel = koinInject()
 
@@ -30,7 +28,7 @@ fun HomePage() {
     var isSearching by remember { mutableStateOf(false) }
     val exampleState by homeViewModel.exampleState.collectAsState()
 
-    fun hideSearchSuggestion() {
+    fun hideSearch() {
         searchText = ""
         isSearching = false
     }
@@ -44,16 +42,16 @@ fun HomePage() {
                     searchText = it
                 },
                 onSearchClick = { searchQuery ->
-                    hideSearchSuggestion()
+                    hideSearch()
                 },
                 onSearchBarClick = {
                     isSearching = true
                 },
                 onProfileClick = {
-                    navigator.push(Screens.ProfilePage)
+                    onProfileClicked()
                 },
                 onCloseSearch = {
-                    hideSearchSuggestion()
+                    hideSearch()
                 }
             )
         }
